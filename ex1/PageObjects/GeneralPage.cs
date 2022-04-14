@@ -31,10 +31,10 @@ namespace ex1.PageObjects
         }
 
 
-        public static WebDriverWait wait = new WebDriverWait(Constant.Constant.WEBDRIVER, TimeSpan.FromSeconds(5));
-        public static Actions actions = new Actions(Constant.Constant.WEBDRIVER);
+        public  WebDriverWait wait = new WebDriverWait(Constant.Constant.WEBDRIVER, TimeSpan.FromSeconds(5));
+        public  Actions actions = new Actions(Constant.Constant.WEBDRIVER);
         // ------------------- Wait ------------------------------
-        public static IWebElement WaitForElementIsVisible(By locator)
+        public  IWebElement WaitForElementIsVisible(By locator)
         {
             return wait.Until(ExpectedConditions.ElementIsVisible(locator));
         }
@@ -45,14 +45,14 @@ namespace ex1.PageObjects
         //    actions.Perform();
         //    element.Click();
         //}
-        public static void ScrollElementAndClick(IWebElement element)
+        public  void ScrollElementAndClick(IWebElement element)
         {
             ((IJavaScriptExecutor)Constant.Constant.WEBDRIVER).ExecuteScript("arguments[0].scrollIntoView(true);", element);
             element.Click();
         }
         // --------------Alert ----------------------
         
-        public static bool isAlertPresent()
+        public  bool isAlertPresent()
         {
             try
             {
@@ -63,7 +63,7 @@ namespace ex1.PageObjects
             }
             
         }
-        public static IAlert alert()
+        public  IAlert alert()
         {
           return Constant.Constant.WEBDRIVER.SwitchTo().Alert();
         }
